@@ -1,51 +1,50 @@
-# makeMoE
+# makeMoE Simpsons Edition
 
 <div align="center">
     <img src="images/makemoelogo.png" width="500"/>
 </div>
 
+#### A sparse mixture of experts language model, built from scratch—now featuring the Simpsons dataset!
 
+Welcome to **makeMoE**! This project is a playful and educational reimagining of Andrej Karpathy’s [makemore](https://github.com/karpathy/makemore), deeply inspired by the Mixture of Experts (MoE) work of [AviSoori1x](https://huggingface.co/blog/AviSoori1x/makemoe-from-scratch). If you’re curious about MoE architectures or want to tinker with a modern language model, you’re in the right place.
 
+- [HuggingFace Community Blog walkthrough](https://huggingface.co/blog/AviSoori1x/makemoe-from-scratch)
+- [Part #2 (Expert Capacity)](https://huggingface.co/blog/AviSoori1x/makemoe2)
 
-#### Sparse mixture of experts language model from scratch inspired by (and largely based on) Andrej Karpathy's makemore (https://github.com/karpathy/makemore) :)
+**What’s new here?**  
+This repo extends the original ideas with the Simpsons dataset, richer guidance, and detailed, beginner-friendly comments—especially in the main notebook.
 
-HuggingFace Community Blog that walks through this: https://huggingface.co/blog/AviSoori1x/makemoe-from-scratch
+---
 
-Part #2 detailing expert capacity: https://huggingface.co/blog/AviSoori1x/makemoe2
+### What is makeMoE?
 
-This is an implementation of a sparse mixture of experts language model from scratch. This is inspired by and largely based on Andrej Karpathy's project 'makemore' and borrows the re-usable components from that implementation. Just like makemore, makeMoE is also an autoregressive character-level language model but uses the aforementioned sparse mixture of experts architecture. 
+makeMoE is a from-scratch implementation of a sparse mixture of experts (MoE) language model, designed for clarity, hackability, and learning. While it builds on the core concepts of makemore, this version is tailored for the Simpsons dataset and comes with expanded explanations and hands-on guidance, especially in `makeMoE_from_Scratch.ipynb`.
 
-Just like makemore, pytorch is the only requirement (so I hope the from scratch claim is justified).
+### Highlights
 
-Significant Changes from the makemore architecture
+- **Simpsons dataset**: Train and experiment with a fun, real-world dataset.
+- **Step-by-step guidance**: The main notebook (`makeMoE_from_Scratch.ipynb`) is packed with comments and explanations to help you understand, modify, and extend the model.
+- **Sparse MoE architecture**: Move beyond a single feedforward net to a modern, scalable MoE design.
+- **Flexible gating**: Includes both top-k and noisy top-k gating mechanisms.
+- **Customizable initialization**: Kaiming He initialization is the default, but you can easily switch to Xavier Glorot or others.
+- **Expert Capacity**: Support for expert capacity (see the blog and notebook for details).
+- **Seamless experiment tracking**: Integrated with wandb for logging training and generations.
 
-- Sparse mixture of experts instead of the solitary feed forward neural net. 
-- Top-k gating and noisy top-k gating implementations.
-- initialization - Kaiming He initialization used here but the point of this notebook is to be hackable so you can swap in Xavier Glorot etc. and take it for a spin.
-- Expert Capacity -- most recent update (03/18/2024)
+### What stays the same?
 
-Unchanged from makemore
-- The dataset, preprocessing (tokenization), and the language modeling task Andrej chose originally - generate Shakespeare-like text
-- Causal self attention implementation 
-- Training loop
-- Inference logic
+- **Pure PyTorch**: No extra dependencies required.
+- **makemore DNA**: Retains the original’s causal self-attention, training loop, and inference logic.
 
-Publications heavily referenced for this implementation: 
-- Outrageously Large Neural Networks: The Sparsely-Gated Mixture-Of-Experts layer: https://arxiv.org/pdf/1701.06538.pdf
-- Mixtral of experts: https://arxiv.org/pdf/2401.04088.pdf
+### References
 
-makeMoE.py is the entirety of the implementation in a single file of pytorch.
+- [Outrageously Large Neural Networks: The Sparsely-Gated Mixture-Of-Experts Layer](https://arxiv.org/pdf/1701.06538.pdf)
+- [Mixtral of Experts](https://arxiv.org/pdf/2401.04088.pdf)
 
-makMoE_from_Scratch.ipynb walks through the intuition for the entire model architecture and how everything comes together. I recommend starting here.
+### Repository Structure
 
-makeMoE_from_Scratch_with_Expert_Capacity.ipynb just builds on the above walkthrough and adds expert capacity for more efficient training.
+- `makeMoE.py`: Complete PyTorch implementation in a single file.
+- `makeMoE_from_Scratch.ipynb`: The main, fully-commented notebook—**start here!**
+- `makeMoE_from_Scratch_with_Expert_Capacity.ipynb`: Builds on the main notebook, adding expert capacity for more efficient training.
+- `makeMoE_Concise.ipynb`: A minimal, hackable version for quick experimentation.
 
-makeMoE_Concise.ipynb is the consolidated hackable implementation that I encourage you to hack, understand, improve and make your own
-
-**The code was entirely developed on Databricks using a single A100 for compute. If you're running this on Databricks, you can scale this on an arbitrarily large GPU cluster with no issues, on the cloud provider of your choice.**
-
-**I chose to use MLFlow (which comes pre-installed in Databricks. It's fully open source and you can pip install easily elsewhere) as I find it helpful to track and log all the metrics necessary. This is entirely optional but encouraged.**
-
-**Please note that the implementation emphasizes readability and hackability vs. performance, so there are many ways in which you could improve this. Please try and let me know!**
-
-Hope you find this useful. Happy hacking!!
+Happy hacking, and may your experts be ever sparse and your generations ever witty!
