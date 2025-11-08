@@ -8,6 +8,9 @@
 
 Welcome to **makeMoE**! This project is a playful and educational reimagining of Andrej Karpathy’s [makemore](https://github.com/karpathy/makemore), deeply inspired by the Mixture of Experts (MoE) work of [AviSoori1x](https://huggingface.co/blog/AviSoori1x/makemoe-from-scratch). If you’re curious about MoE architectures or want to tinker with a modern language model, you’re in the right place.
 
+- `makeMoE_from_Scratch.ipynb`: The main, fully-commented notebook—**start here!**
+
+Additional resources:
 - [HuggingFace Community Blog walkthrough](https://huggingface.co/blog/AviSoori1x/makemoe-from-scratch)
 - [Part #2 (Expert Capacity)](https://huggingface.co/blog/AviSoori1x/makemoe2)
 
